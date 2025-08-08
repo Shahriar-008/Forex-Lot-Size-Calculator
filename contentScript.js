@@ -1,3 +1,31 @@
+
+function getPositionData() {
+  // Try long position fields first
+  let prefix = 'Risk/Rewardlong';
+  let type = 'long';
+  if (!document.querySelector(`input[data-property-id="${prefix}AccountSize"]`)) {
+    // If not found, try short position fields
+    prefix = 'Risk/Rewardshort';
+    type = 'short';
+  }
+  return {
+    type,
+    accountSize: document.querySelector(`input[data-property-id="${prefix}AccountSize"]`)?.value,
+    lotSize: document.querySelector(`input[data-property-id="${prefix}LotSize"]`)?.value,
+    riskPercent: document.querySelector(`input[data-property-id="${prefix}Risk"]`)?.value,
+    entryPrice: document.querySelector(`input[data-property-id="${prefix}EntryPrice"]`)?.value,
+    profitTicks: document.querySelector(`input[data-property-id="${prefix}ProfitLevelTicks"]`)?.value,
+    profitPrice: document.querySelector(`input[data-property-id="${prefix}ProfitLevelPrice"]`)?.value,
+    stopTicks: document.querySelector(`input[data-property-id="${prefix}StopLevelTicks"]`)?.value,
+    stopPrice: document.querySelector(`input[data-property-id="${prefix}StopLevelPrice"]`)?.value,
+  };
+}
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.type === 'GET_TV_POSITION_DATA') {
+    sendResponse(getPositionData());
+  }
+});
 (function () {
     // Create a MutationObserver to look for the Short Position dialog.
     const observer = new MutationObserver((mutations) => {

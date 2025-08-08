@@ -58,7 +58,7 @@
 <body>
   <h2>Lot Size Calculator</h2>
   
-  <label for="accountBalance">Account Balance</label>
+  <label for="accountBalance">Account Balance <span style="font-size:0.8em; color:#888;">(auto-fills from TradingView if available)</span></label>
   <input type="number" id="accountBalance" placeholder="e.g., 10000" step="any">
   
   <label for="riskType">Risk Type</label>
@@ -67,10 +67,10 @@
     <option value="fixed">Fixed Amount</option>
   </select>
   
-  <label for="riskValue">Risk Value</label>
+  <label for="riskValue">Risk Value <span style="font-size:0.8em; color:#888;">(auto-fills from TradingView if available)</span></label>
   <input type="number" id="riskValue" placeholder="e.g., 1 (if %)" step="any">
   
-  <label for="stopLoss">Stop Loss (in pips)</label>
+  <label for="stopLoss">Stop Loss (in pips) <span style="font-size:0.8em; color:#888;">(auto-fills from TradingView if available)</span></label>
   <input type="number" id="stopLoss" placeholder="e.g., 50" step="any">
   
   <button id="calculateBtn">Calculate</button>
