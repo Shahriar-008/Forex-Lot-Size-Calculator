@@ -10,7 +10,8 @@ A simple Chrome extension that helps forex traders calculate their lot sizes qui
   - **Standard Lot (100,000 units)**
   - **Mini Lot (10,000 units)**
 - **Clipboard Copy:** Easily copy the calculated lot sizes to your clipboard with a single click.
-- **Persistent Inputs:** Your account balance, risk type, risk value, and stop loss are saved automatically for quick recalculations.
+- **Persistent Inputs & Results:** All popup fields (account balance, risk type, risk value, stop loss, and last calculated lot sizes) are saved automatically and restored every time you open the extension, until new values are detected or entered.
+- **TradingView Auto-Fetch:** When you open the popup on a TradingView chart with a Position Size tool, the extension will automatically fetch and update the fields with the latest data from the tool (only if new data is detected).
 
 ## Installation
 
@@ -33,7 +34,8 @@ A simple Chrome extension that helps forex traders calculate their lot sizes qui
    - **Standard Lot Size (100,000 units)**
    - **Mini Lot Size (10,000 units)**
 4. **Copy Results:** Use the **Copy** buttons next to each result to copy the numerical values (displayed with 4 decimal places) directly to your clipboard.
-5. Your inputs are saved automatically so you don’t have to re-enter them each time you use the extension.
+5. All your inputs and the last calculated lot sizes are saved automatically and will remain until you change them or new data is detected from TradingView.
+6. If you open the popup on a TradingView chart with a Position Size tool, the extension will auto-fetch and update the fields with the latest values (account balance, risk, stop loss) only if new data is detected. Otherwise, your last-used values remain persistent.
 
 ## How It Works
 
