@@ -15,6 +15,9 @@
   "host_permissions": [
     "*://*.tradingview.com/*"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": ["*://*.tradingview.com/*"],

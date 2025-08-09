@@ -55,9 +55,13 @@ document.addEventListener('DOMContentLoaded', function() {
             rv.value = response.riskPercent;
             updateObj.riskValue = response.riskPercent;
           }
-          if (response.stopTicks && response.stopTicks !== sl.value) {
-            sl.value = response.stopTicks;
-            updateObj.stopLoss = response.stopTicks;
+          if (response.stopTicks) {
+            // Convert ticks to pips (1 pip = 10 ticks for Forex)
+            const stopLossPips = (parseFloat(response.stopTicks) || 0) / 10;
+            if (stopLossPips && stopLossPips !== parseFloat(sl.value)) {
+              sl.value = stopLossPips;
+              updateObj.stopLoss = stopLossPips;
+            }
           }
           if (Object.keys(updateObj).length > 0) {
             chrome.storage.local.set(updateObj);
